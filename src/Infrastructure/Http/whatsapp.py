@@ -1,10 +1,11 @@
 from twilio.rest import Client
 from dotenv import load_dotenv
 import os 
+from Application.Interefaces.message_service_interface import IMessageService
 
 load_dotenv()
 
-class WhatsAppService:
+class WhatsAppService(IMessageService):
     def __init__(self):
         account_sid = os.getenv('TWILIO_ACCOUNT_SID')
         auth_token = os.getenv('TWILIO_AUTH_TOKEN')
